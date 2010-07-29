@@ -17,7 +17,6 @@ class Base
      * undocumented function
      *
      * @return void
-     * @author Martin Bean <martin@digitalpop.co.uk>
      **/
     public function get($url, $options=array())
     {
