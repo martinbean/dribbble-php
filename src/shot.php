@@ -7,6 +7,62 @@
 class Shot extends Base
 {
     /**
+     * Player information
+     *
+     * @var object
+     */
+    public $player;
+    
+    /**
+     * Shot image URL
+     *
+     * @var string
+     */
+    public $image_url;
+    
+    /**
+     * Shot title
+     *
+     * @var string
+     */
+    public $title;
+    
+    /**
+     * Shot URL
+     *
+     * @var string
+     */
+    public $url;
+    
+    /**
+     * Shot ID
+     *
+     * @var integer
+     */
+    public $id;
+    
+    /**
+     * Shot image teaser URL
+     *
+     * @var string
+     */
+    public $teaser_url;
+    
+    /**
+     * Shot image height
+     *
+     * @var integer
+     */
+    public $height;
+    
+    /**
+     * Shot image width
+     *
+     * @var integer
+     */
+    public $width;
+    
+    /**
      * undocumented function
      *
      * @return void

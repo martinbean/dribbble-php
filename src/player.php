@@ -7,6 +7,41 @@
 class Player extends Base
 {
     /**
+     * Player avatar URL
+     *
+     * @var string
+     */
+    public $avatar_url;
+    
+    /**
+     * Player name
+     *
+     * @var string
+     */
+    public $name;
+    
+    /**
+     * Player location
+     *
+     * @var string
+     */
+    public $location;
+    
+    /**
+     * Player's profile URL
+     *
+     * @var string
+     */
+    public $url;
+    
+    /**
+     * Player ID
+     *
+     * @var integer
+     */
+    public $id;
+    
+    /**
      * undocumented function
      *
      * @return void
