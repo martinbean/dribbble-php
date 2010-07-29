@@ -22,6 +22,6 @@ abstract class Dribbble
      **/
     public function paginated_list($url, $options)
     {
-        return json_decode($this->baseUrl.$url.'?'.http_build_query($options));
+        return json_decode(file_get_contents($this->baseUrl.$url.'?'.http_build_query($options)));
     }
 }
