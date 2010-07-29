@@ -9,6 +9,17 @@ class Shot extends Base
     /**
      * undocumented function
      *
+     * @return void
+     * @author Martin Bean <martin@digitalpop.co.uk>
+     **/
+    function find($id)
+    {
+        return $this->get('/shots/'.$id);
+    }
+    
+    /**
+     * undocumented function
+     *
      * @param int $page
      * @param int $per_page
      * @return string

@@ -7,14 +7,14 @@
 class Player extends Base
 {
     /**
-     * Constructs the class
+     * undocumented function
      *
-     * @param int $id Dribbble player ID
      * @return void
+     * @author Martin Bean <martin@digitalpop.co.uk>
      **/
-    function __construct($id=null)
+    function find($id)
     {
-        $this->id = $id;
+        return $this->get('/players/'.$id);
     }
     
     /**

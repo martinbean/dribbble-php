@@ -16,6 +16,17 @@ class Base
     /**
      * undocumented function
      *
+     * @return void
+     * @author Martin Bean <martin@digitalpop.co.uk>
+     **/
+    public function get($url)
+    {
+        return json_decode(file_get_contents($this->baseUrl.$url));
+    }
+    
+    /**
+     * undocumented function
+     *
      * @param string $url
      * @param array  $options
      * @return string
