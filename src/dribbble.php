@@ -4,24 +4,33 @@
  *
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
  **/
-abstract class Dribbble
+class Dribbble
 {
     /**
-     * Dribbble API base URL
+     * An instance of the shot API class
      *
-     * @var string
+     * @var object
      **/
-    var $baseUrl = "http://api.dribbble.com/";
+    var $shot;
     
     /**
-     * undocumented function
+     * An instance of the player API class
      *
-     * @param string $url
-     * @param array  $options
-     * @return string
+     * @var object
      **/
-    public function paginated_list($url, $options)
+    var $player;
+    
+    /**
+     * Constructs the class
+     *
+     * @return void
+     **/
+    function __construct()
     {
-        return json_decode(file_get_contents($this->baseUrl.$url.'?'.http_build_query($options)));
+        require_once(str_replace('dribbble.php', 'shot.php',   __FILE__));
+        require_once(str_replace('dribbble.php', 'player.php', __FILE__));
+        
+        $this->shot   = new Shot();
+        $this->player = new Player();
     }
 }

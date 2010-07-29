@@ -4,7 +4,7 @@
  *
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
  **/
-class Shot extends Dribbble
+class Shot extends Base
 {
     /**
      * undocumented function

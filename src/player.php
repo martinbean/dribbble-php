@@ -4,7 +4,7 @@
  *
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
  **/
-class Player extends Dribbble
+class Player extends Base
 {
     /**
      * Constructs the class
