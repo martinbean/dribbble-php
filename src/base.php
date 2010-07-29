@@ -19,9 +19,13 @@ class Base
      * @return void
      * @author Martin Bean <martin@digitalpop.co.uk>
      **/
-    public function get($url)
+    public function get($url, $options=array())
     {
-        return json_decode(file_get_contents($this->baseUrl.$url));
+        $url = $this->baseUrl . $url;
+        if (!empty($options)) {
+            $url.= "?" . http_build_query($options);
+        }
+        return json_decode(file_get_contents($url));
     }
     
     /**
@@ -31,8 +35,8 @@ class Base
      * @param array  $options
      * @return string
      **/
-    public function paginated_list($url, $options)
+    public function paginated_list($object)
     {
-        return json_decode(file_get_contents($this->baseUrl.$url.'?'.http_build_query($options)));
+        return json_decode(file_get_contents($object));
     }
 }

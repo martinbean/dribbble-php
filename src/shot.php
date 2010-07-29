@@ -26,7 +26,7 @@ class Shot extends Base
      **/
     public function debuts($page=null, $per_page=null)
     {
-        return $this->paginated_list('/shots/debuts', array($page, $per_page));
+        return $this->paginated_list($this->get('/shots/debuts', array($page, $per_page)));
     }
     
     /**
@@ -38,7 +38,7 @@ class Shot extends Base
      **/
     public function everyone($page=null, $per_page=null)
     {
-        return $this->paginated_list('/shots/everyone', array($page, $per_page));
+        return $this->paginated_list($this->get('/shots/everyone', array($page, $per_page)));
     }
     
     /**
@@ -50,6 +50,6 @@ class Shot extends Base
      **/
     public function popular($page=null, $per_page=null)
     {
-        return $this->paginated_list('/shots/popular', array($page, $per_page));
+        return $this->paginated_list($this->get('/shots/popular', array($page, $per_page)));
     }
 }

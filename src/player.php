@@ -26,7 +26,7 @@ class Player extends Base
      **/
     public function shots($page=null, $per_page=null)
     {
-        return $this->paginated_list('/players/'.$this->id.'/shots', array($page, $per_page));
+        return $this->paginated_list($this->get('/players/'.$this->id.'/shots', array($page, $per_page)));
     }
     
     /**
@@ -38,6 +38,6 @@ class Player extends Base
      **/
     public function everyone($page=null, $per_page=null)
     {
-        return $this->paginated_list('/players/'.$this->id.'/shots/following', array($page, $per_page));
+        return $this->paginated_list($this->get('/players/'.$this->id.'/shots/following', array($page, $per_page)));
     }
 }
