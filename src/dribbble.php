@@ -27,6 +27,7 @@ class Dribbble
      **/
     function __construct()
     {
+        require_once(str_replace('dribbble.php', 'base.php',   __FILE__));
         require_once(str_replace('dribbble.php', 'shot.php',   __FILE__));
         require_once(str_replace('dribbble.php', 'player.php', __FILE__));
         
