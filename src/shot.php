@@ -18,38 +18,35 @@ class Shot extends Base
     }
     
     /**
-     * undocumented function
+     * Fetches shots of debutants
      *
-     * @param int $page
-     * @param int $per_page
+     * @param array $options
      * @return string
      **/
-    public function debuts($page=null, $per_page=null)
+    public function debuts($options=array())
     {
-        return $this->paginated_list($this->get('/shots/debuts', array($page, $per_page)));
+        return $this->paginated_list($this->get('/shots/debuts', $options));
     }
     
     /**
-     * undocumented function
+     * Fetches shots from everyone
      *
-     * @param int $page
-     * @param int $per_page
+     * @param array $options
      * @return string
      **/
-    public function everyone($page=null, $per_page=null)
+    public function everyone($options=array())
     {
-        return $this->paginated_list($this->get('/shots/everyone', array($page, $per_page)));
+        return $this->paginated_list($this->get('/shots/everyone', $options));
     }
     
     /**
-     * undocumented function
+     * Fetches popular shots
      *
-     * @param int $page
-     * @param int $per_page
+     * @param array $options
      * @return string
      **/
-    public function popular($page=null, $per_page=null)
+    public function popular($options=array())
     {
-        return $this->paginated_list($this->get('/shots/popular', array($page, $per_page)));
+        return $this->paginated_list($this->get('/shots/popular', $options));
     }
 }

@@ -20,24 +20,22 @@ class Player extends Base
     /**
      * Fetches this player's shots
      *
-     * @param int $page
-     * @param int $per_page
+     * @param array $options
      * @return string
      **/
-    public function shots($page=null, $per_page=null)
+    public function shots($options=array())
     {
-        return $this->paginated_list($this->get('/players/'.$this->id.'/shots', array($page, $per_page)));
+        return $this->paginated_list($this->get('/players/'.$this->id.'/shots', $options));
     }
     
     /**
      * Fetches shots by players that this player follows
      *
-     * @param int $page
-     * @param int $per_page
+     * @param array $options
      * @return string
      **/
-    public function everyone($page=null, $per_page=null)
+    public function everyone($options=array())
     {
-        return $this->paginated_list($this->get('/players/'.$this->id.'/shots/following', array($page, $per_page)));
+        return $this->paginated_list($this->get('/players/'.$this->id.'/shots/following', $options));
     }
 }
