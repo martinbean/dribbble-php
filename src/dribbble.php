@@ -4,7 +4,7 @@
  *
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
  **/
-class Dribbble
+abstract class Dribbble
 {
     /**
      * Dribbble API base URL
@@ -12,4 +12,16 @@ class Dribbble
      * @var string
      **/
     var $baseUrl = "http://api.dribbble.com/";
+    
+    /**
+     * undocumented function
+     *
+     * @param string $url
+     * @param array  $options
+     * @return string
+     **/
+    public function paginated_list($url, $options)
+    {
+        return json_decode($this->baseUrl.$url.'?'.http_build_query($options));
+    }
 }
