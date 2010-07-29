@@ -69,7 +69,7 @@ class Player extends Base
      * @param array $options
      * @return string
      **/
-    public function everyone($options=array())
+    public function following($options=array())
     {
         return $this->paginated_list($this->get('/players/'.$this->id.'/shots/following', $options));
     }
