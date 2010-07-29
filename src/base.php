@@ -24,7 +24,11 @@ class Base
         if (!empty($options)) {
             $url.= "?" . http_build_query($options);
         }
-        return json_decode(file_get_contents($url));
+        $result = json_decode(file_get_contents($url));
+        foreach ($result as $key => $value) {
+            $this->{$key} = $value;
+        }
+        return $this;
     }
     
     /**
@@ -36,6 +40,6 @@ class Base
      **/
     public function paginated_list($object)
     {
-        return json_decode(file_get_contents($object));
+        return $object;
     }
 }

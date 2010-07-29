@@ -49,7 +49,8 @@ class Player extends Base
      **/
     function find($id)
     {
-        return $this->get('/players/'.$id);
+        $this->get('/players/'.$id);
+        return $this;
     }
     
     /**
