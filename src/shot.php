@@ -6,61 +6,19 @@
  **/
 class Shot extends Base
 {
-    /**
-     * Player information
-     *
-     * @var object
-     */
-    public $player;
-    
-    /**
-     * Shot image URL
-     *
-     * @var string
-     */
-    public $image_url;
-    
-    /**
-     * Shot title
-     *
-     * @var string
-     */
-    public $title;
-    
-    /**
-     * Shot URL
-     *
-     * @var string
-     */
-    public $url;
-    
-    /**
-     * Shot ID
-     *
-     * @var integer
-     */
-    public $id;
-    
-    /**
-     * Shot image teaser URL
-     *
-     * @var string
-     */
-    public $teaser_url;
-    
-    /**
-     * Shot image height
-     *
-     * @var integer
-     */
-    public $height;
-    
-    /**
-     * Shot image width
-     *
-     * @var integer
-     */
-    public $width;
+    public $id;                // integer
+    public $title;             // string
+    public $url;               // string
+    public $image_url;         // string
+    public $image_teaser_url;  // string
+    public $width;             // integer
+    public $height;            // integer
+    public $views_count;       // integer
+    public $likes_count;       // integer
+    public $comments_count;    // integer
+    public $rebounds_count;    // integer
+    public $created_at;        // string
+    public $player;            // object
     
     /**
      * undocumented function

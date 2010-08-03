@@ -6,40 +6,16 @@
  **/
 class Player extends Base
 {
-    /**
-     * Player avatar URL
-     *
-     * @var string
-     */
-    public $avatar_url;
-    
-    /**
-     * Player name
-     *
-     * @var string
-     */
-    public $name;
-    
-    /**
-     * Player location
-     *
-     * @var string
-     */
-    public $location;
-    
-    /**
-     * Player's profile URL
-     *
-     * @var string
-     */
-    public $url;
-    
-    /**
-     * Player ID
-     *
-     * @var integer
-     */
-    public $id;
+    public $id;              // integer
+    public $shots_count;     // integer
+    public $avatar_url;      // string
+    public $name;            // string
+    public $created_at;      // string
+    public $location;        // string
+    public $following_count; // integer
+    public $url;             // string
+    public $draftees_count;  // integer
+    public $followers_count; // integer
     
     /**
      * undocumented function
