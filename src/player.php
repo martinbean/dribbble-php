@@ -6,16 +6,18 @@
  **/
 class Player extends Base
 {
-    public $id;              // integer
-    public $shots_count;     // integer
-    public $avatar_url;      // string
-    public $name;            // string
-    public $created_at;      // string
-    public $location;        // string
-    public $following_count; // integer
-    public $url;             // string
-    public $draftees_count;  // integer
-    public $followers_count; // integer
+    public $id;
+    public $name;
+    public $url;
+    public $avatar_url;
+    public $location;
+    public $twitter_screen_name;
+    public $drafted_by_player_id;
+    public $shots_counts;
+    public $draftees_count;
+    public $followers_count;
+    public $following_count;
+    public $created_at;
     
     /**
      * undocumented function
