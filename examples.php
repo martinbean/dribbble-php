@@ -43,3 +43,18 @@ $player->shots(array('page' => 2, 'per_page' => 10));
 
 # List shots by player's that this player follows
 $player->following(array('page' => 5, 'per_page' => 30));
+
+# Loop through some of your shots
+$shots = $player->shots();
+$i = 0;
+$limit = 2;
+foreach($shots->shots as $shot){ 
+  if ($i < $limit){
+    # For each shot do some stuff
+    # $image = $shot->image_teaser_url;
+    # $title = $shot->title;
+    # $shoturl = $shot->url;
+    # echo '<a href="'.$shoturl.'"><img src="'.$image.'" alt="'.$title.'" title="'.$title.'" /></a>';
+  }
+  ++$i;
+}
