@@ -58,3 +58,9 @@ foreach($shots->shots as $shot){
   }
   ++$i;
 }
+
+# Streamlined version of the above example if we wanted two shots only...
+$shots = $player->shots(array('per_page' => 2));
+foreach ($shots->shots as $shot) {
+	echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>', $shot->url, $shot->image_teaser_url, $shot->title);
+}
