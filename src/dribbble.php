@@ -1,6 +1,6 @@
 <?php
 /**
- * Dribbble base API class
+ * Dribbble API wrapper class
  *
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
  **/
@@ -25,11 +25,11 @@ class Dribbble
      *
      * @return void
      **/
-    function __construct()
+    public function __construct()
     {
-        require_once(str_replace('dribbble.php', 'base.php',   __FILE__));
-        require_once(str_replace('dribbble.php', 'shot.php',   __FILE__));
-        require_once(str_replace('dribbble.php', 'player.php', __FILE__));
+        require_once(dirname(__FILE__) . '.base.php');
+        require_once(dirname(__FILE__) . '.shot.php');
+        require_once(dirname(__FILE__) . '.player.php');
         
         $this->shot   = new Shot();
         $this->player = new Player();
