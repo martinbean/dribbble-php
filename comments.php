@@ -4,7 +4,7 @@
  * An expansion of the wrapper that includes start of comments
  *
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
- * edits by Zach Dunn (onemightyroar.com)
+ * Edits by Zach Dunn (onemightyroar.com)
  */
 
 error_reporting(E_ALL); 
@@ -18,7 +18,7 @@ $dribbble = new Dribbble();
 # find a shot
 $shot = $dribbble->shot->find(62170);
 
-# Direct call to comments
+# Alternate Direct call to comments
 # $comments = $dribbble->shot->find(21690)->comments(array('per_page' => 2));
 
 # Get comments

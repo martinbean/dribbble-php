@@ -21,8 +21,14 @@ class Shot extends Base
     public $player;            // object
     
     //Comments on a shot
-    public $comments;			//object
+    public $comments;		   	//object
+    public $shots;		   		//object
+    	public $rebounds;			//Alias for shots
     
+    function __construct(){
+    	$rebounds =& $shots; // Alias "shots" to mean "rebounds". Intuitive naming
+	}
+	
     /**
      * undocumented function
      *
@@ -67,7 +73,12 @@ class Shot extends Base
         return $this->paginated_list($this->get('/shots/popular', $options));
     }
     
-    //Add comment sampling for a shot
+    /**
+     * Fetches comments for a particular shot
+     *
+     * @param array $options
+     * @return string
+     **/
     public function comments($options=array())
     {
     	//This will automatically use the current shot ID
@@ -88,4 +99,31 @@ class Shot extends Base
     	}
     	
     }
+    
+     /**
+     * Fetches rebounds for a particular shot
+     *
+     * @param array $options
+     * @return string
+     **/
+    public function rebounds($options=array())
+    {
+    	//This will automatically use the current shot ID
+    	if (!empty($this->id)){
+    		
+    		$this->paginated_list($this->get('/shots/'.$this->id.'/rebounds', $options));
+    	
+    		if ($this->total > 0) :
+    			return $this->shots; //Renamed to "rebounds" in usage
+    		else :
+    			//There are no rebounds for this shot
+    			return false;
+    		endif;
+    		
+    	}else{
+    		//No ID has been set yet
+    		return false;	
+    	}	
+    }
+    
 }
