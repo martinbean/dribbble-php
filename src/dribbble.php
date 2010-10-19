@@ -27,11 +27,13 @@ class Dribbble
      **/
     public function __construct()
     {
-        require_once(dirname(__FILE__) . '.base.php');
-        require_once(dirname(__FILE__) . '.shot.php');
-        require_once(dirname(__FILE__) . '.player.php');
+        require_once(dirname(__FILE__) . '/base.php');
+        require_once(dirname(__FILE__) . '/shot.php');
+        require_once(dirname(__FILE__) . '/player.php');
         
         $this->shot   = new Shot();
         $this->player = new Player();
     }
 }
+
+?>

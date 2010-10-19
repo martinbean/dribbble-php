@@ -20,6 +20,9 @@ class Shot extends Base
     public $created_at;        // string
     public $player;            // object
     
+    //Comments on a shot
+    public $comments;			//object
+    
     /**
      * undocumented function
      *
@@ -62,5 +65,27 @@ class Shot extends Base
     public function popular($options=array())
     {
         return $this->paginated_list($this->get('/shots/popular', $options));
+    }
+    
+    //Add comment sampling for a shot
+    public function comments($options=array())
+    {
+    	//This will automatically use the current shot ID
+    	if (!empty($this->id)){
+    		
+    		$this->paginated_list($this->get('/shots/'.$this->id.'/comments', $options));
+    	
+    		if ($this->total > 0) :
+    			return $this->comments;
+    		else :
+    			//There are no comments for this shot
+    			return false;
+    		endif;
+    		
+    	}else{
+    		//No ID has been set yet
+    		return false;		
+    	}
+    	
     }
 }

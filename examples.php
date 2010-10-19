@@ -5,12 +5,15 @@
  * @author Martin Bean <martin@mcbwebdesign.co.uk>
  */
 
+//error_reporting(E_ALL); 
+//ini_set("display_errors", 1); 
+
 require_once('src/dribbble.php');
 
 $dribbble = new Dribbble();
 
 # find a shot
-$shot = $dribbble->shot->find(38126);
+$shot = $dribbble->shot->find(21603);
 
 # see some data about the shot
 $shot->title;
@@ -29,7 +32,7 @@ $dribbble->shot->everyone(array('page' => 10, 'per_page' => 5));
 $dribbble->shot->debuts(array('page' => 5, 'per_page' => 30));
 
 # Find a player
-$player = $dribbble->player->find('martinbean');
+$player = $dribbble->player->find('zachdunn');
 
 # See some data about the player
 $player->name;
@@ -64,3 +67,5 @@ $shots = $player->shots(array('per_page' => 2));
 foreach ($shots->shots as $shot) {
 	echo sprintf('<a href="%s"><img src="%s" alt="%s" /></a>', $shot->url, $shot->image_teaser_url, $shot->title);
 }
+
+?>
