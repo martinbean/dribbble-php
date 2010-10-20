@@ -3,11 +3,14 @@ README
 
 AUTHORS
     Martin Bean <martin@mcbwebdesign.co.uk>
+    Zach Dunn <zach@onemightyroar.com>
 
 THANKS
     Jeremy Weiskotten, who inspired me to write this. If Ruby on Rails is more your flavour,
     check out his Ruby gem, swish, which is a Ruby wrapper for the Dribbble API:
     http://github.com/jeremyw/swish
+    
+    Zach Dunn, for beating me to adding modifications to handle comments too.
 
 ChangeLog
     -
