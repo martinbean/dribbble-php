@@ -8,7 +8,7 @@
 //error_reporting(E_ALL); 
 //ini_set("display_errors", 1); 
 
-require_once('src/dribbble.php');
+require_once('../src/dribbble.php');
 
 $dribbble = new Dribbble();
 
