@@ -1,4 +1,9 @@
 <?php
+
+if (preg_match("/player\.php$/", $_SERVER['PHP_SELF'])){
+	exit('No direct script access allowed');
+}
+
 /**
  * Dribbble player API class
  *
@@ -8,6 +13,7 @@ class Player extends Base
 {
     public $id;
     public $name;
+    public $username;
     public $url;
     public $avatar_url;
     public $location;
@@ -39,7 +45,8 @@ class Player extends Base
      **/
     public function shots($options=array())
     {
-        return $this->paginated_list($this->get('/players/'.$this->id.'/shots', $options));
+        $result = $this->paginated_list($this->get('/players/'.$this->id.'/shots', $options));
+    	return $result->shots;
     }
     
     /**
@@ -48,8 +55,27 @@ class Player extends Base
      * @param array $options
      * @return string
      **/
-    public function following($options=array())
+    public function shots_by_following($options=array())
     {
         return $this->paginated_list($this->get('/players/'.$this->id.'/shots/following', $options));
+    }
+    
+    /*
+    	Get a list of people this player follows
+    */
+    public function following($options=array())
+    {
+        $result = $this->paginated_list($this->get('/players/'.$this->id.'/following', $options));
+    	return $result->players;
+    }
+    
+    /*
+    	Get a list of people this player has drafted
+    */
+    
+    public function draftees($options=array())
+    {
+    	$result = $this->paginated_list($this->get('/players/'.$this->id.'/draftees', $options));
+    	return $result->players;
     }
 }

@@ -1,4 +1,9 @@
 <?php
+
+if (preg_match("/dribbble\.php$/", $_SERVER['PHP_SELF'])){
+	exit('No direct script access allowed');
+}
+ 
 /**
  * Dribbble API wrapper class
  *

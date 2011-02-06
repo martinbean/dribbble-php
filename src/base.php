@@ -1,4 +1,9 @@
 <?php
+
+if (preg_match("/base\.php$/", $_SERVER['PHP_SELF'])){
+	exit('No direct script access allowed');
+}
+
 /**
  * Dribbble base API class
  *

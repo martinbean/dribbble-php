@@ -29,6 +29,11 @@ body{background:#efefef; margin:0; padding:0; -webkit-font-smoothing:antialiased
 	
 	ul.comments li {background:#fff; border-radius:3px; -webkit-border-radius:3px; border:1px solid #DDD; padding:0 12px;}
 		span.author{text-transform:uppercase; color:#9b9b9b; font-size:11px; letter-spacing:1px;}
+		
+	.player-list li{font:14px/1.6em "Helvetica Neue", Helvetica, Arial, sans-serif; color:#333;}
+	
+	.avatar{float:left; margin:30px 15px 0 0; padding:5px; background:#FFF; border:1px solid #DDD;}
+	
 /*
 	Layout (Uses HTML5)
 */
