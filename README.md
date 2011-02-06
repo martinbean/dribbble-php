@@ -1,8 +1,8 @@
 # PHP Wrapper for Dribbble API
 
 ## AUTHORS
-Martin Bean <martin@mcbwebdesign.co.uk>
-Zach Dunn <zach@onemightyroar.com>
+Martin Bean (martin@mcbwebdesign.co.uk)
+Zach Dunn (zach@onemightyroar.com)
 
 ## ChangeLog
 ** 2/6/2011 (Zach Dunn)**
@@ -22,8 +22,7 @@ Zach Dunn <zach@onemightyroar.com>
 Jeremy Weiskotten, who inspired me to write this. If Ruby on Rails is more your flavour, check out his Ruby gem, swish, which is a Ruby wrapper for the Dribbble API: http://github.com/jeremyw/swish
     
 ## COPYING / LICENSE
-
-Copyright (c) 2011 Martin Bean
+Licensed under the MIT license. See LICENSE.txt for further information.
 
 ## BUGS
 Please track bugs using the issues tab of this project on GitHub [https://github.com/martinbean/dribbble-php/issues](https://github.com/martinbean/dribbble-php/issues)
