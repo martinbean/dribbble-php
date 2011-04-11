@@ -16,7 +16,7 @@ Zach Dunn (zach@onemightyroar.com)
 -
 
 ## INSTALL
--
+Simply deploy the files onto your web server's file system. Your server does require the `fopen` option though until an alternative method is used to fetch data from URLs.
 
 ## THANKS
 Jeremy Weiskotten, who inspired me to write this. If Ruby on Rails is more your flavour, check out his Ruby gem, swish, which is a Ruby wrapper for the Dribbble API: http://github.com/jeremyw/swish
