@@ -5,12 +5,12 @@ Martin Bean (martin@mcbwebdesign.co.uk)
 Zach Dunn (zach@onemightyroar.com)
 
 ## ChangeLog
-** 2/6/2011 (Zach Dunn)**
-- Tagged for v1.0
-- Player class now supports draftees and followers. See the new example page for use cases. 
-- New proposed MIT license added to the repo.
-- Player class now returns specific player lists instead of entire player objects for `draftees()` and `following()`
-- The old `following()` method is now `shots_by_following()`, since it makes more sense semantically.
+** 2/6/2011 (Zach Dunn)**  
+- Tagged for v1.0  
+- Player class now supports draftees and followers. See the new example page for use cases.  
+- New proposed MIT license added to the repo.  
+- Player class now returns specific player lists instead of entire player objects for `draftees()` and `following()`  
+- The old `following()` method is now `shots_by_following()`, since it makes more sense semantically.  
 
 ## NEWS
 -
