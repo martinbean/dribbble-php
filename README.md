@@ -1,7 +1,7 @@
 # PHP Wrapper for Dribbble API
 
 ## AUTHORS
-Martin Bean (martin@mcbwebdesign.co.uk)
+Martin Bean (martin@mcbwebdesign.co.uk)  
 Zach Dunn (zach@onemightyroar.com)
 
 ## ChangeLog
