@@ -5,11 +5,11 @@ Martin Bean (martin@mcbwebdesign.co.uk)
 Zach Dunn (zach@onemightyroar.com)
 
 ## ChangeLog
-12/28/2011 (Martin Bean):
+12/28/2011 (Martin Bean):  
 * Tagged for v2.0
 * Completely re-factored; check out the new examples
 
-2/6/2011 (Zach Dunn):
+2/6/2011 (Zach Dunn):  
 * Tagged for v1.0  
 * Player class now supports draftees and followers. See the new example page for use cases.  
 * New proposed MIT license added to the repo.  
