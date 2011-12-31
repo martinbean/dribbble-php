@@ -184,15 +184,18 @@ class Dribbble
      *
      * @param  string $url
      * @param  string $method
-     * @param  array  $options
+     * @param  array  $params
      * @return object
      * @throws DribbbleException
      */
-    protected function makeRequest($url, $method = 'GET', $options = array())
+    protected function makeRequest($url, $method = 'GET', $params = array())
     {
         $ch = curl_init();
         $options = self::$CURL_OPTS;
         $options[CURLOPT_URL] = $this->endpoint . $url;
+        if (!empty($params)) {
+            $options[CURLOPT_URL].= '?'.http_build_query($params, null, '&');
+        }
         curl_setopt_array($ch, $options);
         $result = curl_exec($ch);
         if ($result === false) {
