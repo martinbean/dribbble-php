@@ -173,9 +173,10 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-    public function get_player_draftees($id)
+   public function get_player_draftees($id, $page = 1, $per_page = 15)
     {
-        return $this->makeRequest(sprintf('/players/%s/following', $id), 'GET');
+        $options = array('page' => intval($page), 'per_page' => intval($per_page));
+        return $this->makeRequest(sprintf('/players/%s/draftees', $id), 'GET', $options);
     }
     
     /**
