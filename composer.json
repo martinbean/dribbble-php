@@ -1,0 +1,28 @@
+{
+    "name": "martinbean/dribbble-php",
+    "description": "PHP wrapper for the Dribbble API.",
+    "version": "2.1.0",
+    "type": "library",
+    "keywords": [
+        "dribbble",
+        "php",
+        "api"
+    ],
+    "homepage": "http://martinbean.github.com/dribbble-php/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Bean",
+            "email": "martin@martinbean.co.uk",
+            "homepage": "http://www.martinbean.co.uk"
+        },
+        {
+            "name": "Zach Dunn"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Dribbble": "src/"
+        }
+    }
+}

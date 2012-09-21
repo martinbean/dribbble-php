@@ -1,25 +1,11 @@
 <?php
 /**
  * PHP wrapper for the Dribbble API.
- * Released under the MIT License.
  * 
  * @author  Martin Bean <martin@mcbwebdesign.co.uk>
- * @package Dribbble API PHP Wrapper
- * @version 2.0
+ * @license MIT
+ * @version 2.1.0
  */
-
-if (!function_exists('curl_init')) {
-    throw new Exception('Dribbble API needs the cURL PHP extension.');
-}
-
-if (!function_exists('json_decode')) {
-    throw new Exception('Dribbble API needs the JSON PHP extension.');
-}
-
-/**
- * Thrown when an API call returns an exception.
- */
-class DribbbleException extends Exception {}
 
 /**
  * The core Dribbble API PHP wrapper class.
