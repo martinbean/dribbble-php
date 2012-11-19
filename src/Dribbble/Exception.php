@@ -10,4 +10,4 @@
 /**
  * Thrown when an API call returns an exception.
  */
-class Dribbble_Exception extends Exception {}
+class DribbbleException extends Exception {}

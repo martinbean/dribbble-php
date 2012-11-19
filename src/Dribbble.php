@@ -74,8 +74,11 @@ class Dribbble
      */
     public function get_shots_list($list = 'everyone', $page = 1, $per_page = 15)
     {
-        $options = array('page' => intval($page), 'per_page' => intval($per_page));
-        return $this->makeRequest(sprintf('/shots/%s', $id), 'GET', $options);
+        $options = array(
+            'page' => intval($page),
+            'per_page' => intval($per_page)
+        );
+        return $this->makeRequest(sprintf('/shots/%s', $list), 'GET', $options);
     }
     
     /**
@@ -88,7 +91,10 @@ class Dribbble
      */
     public function get_player_shots($id, $page = 1, $per_page = 15)
     {
-        $options = array('page' => intval($page), 'per_page' => intval($per_page));
+        $options = array(
+            'page' => intval($page),
+            'per_page' => intval($per_page)
+        );
         return $this->makeRequest(sprintf('/players/%s/shots', $id), 'GET', $options);
     }
     
@@ -102,7 +108,10 @@ class Dribbble
      */
     public function get_player_following_shots($id, $page = 1, $per_page = 15)
     {
-        $options = array('page' => intval($page), 'per_page' => intval($per_page));
+        $options = array(
+            'page' => intval($page),
+            'per_page' => intval($per_page)
+        );
         return $this->makeRequest(sprintf('/players/%s/shots/following', $id), 'GET', $options);
     }
     
@@ -116,7 +125,10 @@ class Dribbble
      */
     public function get_player_likes($id, $page = 1, $per_page = 15)
     {
-        $options = array('page' => intval($page), 'per_page' => intval($per_page));
+        $options = array(
+            'page' => intval($page),
+            'per_page' => intval($per_page)
+        );
         return $this->makeRequest(sprintf('/players/%s/shots/likes', $id), 'GET', $options);
     }
     
@@ -161,7 +173,10 @@ class Dribbble
      */
    public function get_player_draftees($id, $page = 1, $per_page = 15)
     {
-        $options = array('page' => intval($page), 'per_page' => intval($per_page));
+        $options = array(
+            'page' => intval($page),
+            'per_page' => intval($per_page)
+        );
         return $this->makeRequest(sprintf('/players/%s/draftees', $id), 'GET', $options);
     }
     
