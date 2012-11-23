@@ -73,6 +73,7 @@ pre {
     margin-bottom: 1.67em;
     padding: 1.25em;
     border: 0.1em solid #ddd;
+    overflow-x: auto;
 }
 
 header {
