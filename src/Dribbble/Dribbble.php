@@ -190,7 +190,7 @@ class Dribbble
      * @param  string $method
      * @param  array  $params
      * @return object
-     * @throws DribbbleException
+     * @throws Dribbble\Exception
      */
     protected function makeRequest($url, $method = 'GET', $params = array())
     {
@@ -198,16 +198,19 @@ class Dribbble
         $options = self::$CURL_OPTS;
         $options[CURLOPT_URL] = $this->endpoint . $url;
         if (!empty($params)) {
-            $options[CURLOPT_URL].= '?'.http_build_query($params, null, '&');
+            $options[CURLOPT_URL].= '?' . http_build_query($params, null, '&');
         }
         curl_setopt_array($ch, $options);
         $result = curl_exec($ch);
-        if ($result === false) {
-            $e = new DribbbleException(curl_error($ch), curl_errno($ch));
-            curl_close($ch);
-            throw new $e;
-        }
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return json_decode($result);
+        if ($result === false) {
+            throw new Exception(curl_error($ch), curl_errno($ch));
+        }
+        $result = json_decode($result);
+        if (isset($result->message)) {
+            throw new Exception($result->message, $status);
+        }
+        return $result;
     }
 }
