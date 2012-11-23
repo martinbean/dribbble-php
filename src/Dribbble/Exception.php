@@ -4,10 +4,14 @@
  * 
  * @author  Martin Bean <martin@mcbwebdesign.co.uk>
  * @license MIT
- * @version 2.1.0
+ * @version 2.2.0
  */
+
+namespace Dribbble;
 
 /**
  * Thrown when an API call returns an exception.
  */
-class DribbbleException extends Exception {}
+class Exception extends \Exception
+{
+}

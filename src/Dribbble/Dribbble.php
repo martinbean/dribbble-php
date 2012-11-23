@@ -4,8 +4,10 @@
  * 
  * @author  Martin Bean <martin@mcbwebdesign.co.uk>
  * @license MIT
- * @version 2.1.0
+ * @version 2.2.0
  */
+
+namespace Dribbble;
 
 /**
  * The core Dribbble API PHP wrapper class.
@@ -37,7 +39,7 @@ class Dribbble
      * @param  integer $id
      * @return object
      */
-    public function get_shot($id)
+    public function getShot($id)
     {
         return $this->makeRequest(sprintf('/shots/%d', $id), 'GET');
     }
@@ -48,7 +50,7 @@ class Dribbble
      * @param  integer $id
      * @return object
      */
-    public function get_shot_rebounds($id)
+    public function getShotRebounds($id)
     {
         return $this->makeRequest(sprintf('/shots/%d/rebounds', $id), 'GET');
     }
@@ -59,7 +61,7 @@ class Dribbble
      * @param  integer $id
      * @return object
      */
-    public function get_shot_comments($id)
+    public function getShotComments($id)
     {
         return $this->makeRequest(sprintf('/shots/%d/comments', $id), 'GET');
     }
@@ -72,7 +74,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_shots_list($list = 'everyone', $page = 1, $per_page = 15)
+    public function getShotsList($list = 'everyone', $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -89,7 +91,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_player_shots($id, $page = 1, $per_page = 15)
+    public function getPlayerShots($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -106,7 +108,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_player_following_shots($id, $page = 1, $per_page = 15)
+    public function getPlayerFollowingShots($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -123,7 +125,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_player_likes($id, $page = 1, $per_page = 15)
+    public function getPlayerLikes($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -138,7 +140,7 @@ class Dribbble
      * @param  mixed   $id
      * @return object
      */
-    public function get_player($id)
+    public function getPlayer($id)
     {
         return $this->makeRequest(sprintf('/players/%s', $id), 'GET');
     }
@@ -149,7 +151,7 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-    public function get_player_followers($id)
+    public function getPlayerFollowers($id)
     {
         return $this->makeRequest(sprintf('/players/%s/followers', $id), 'GET');
     }
@@ -160,7 +162,7 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-    public function get_player_following($id)
+    public function getPlayerFollowing($id)
     {
         return $this->makeRequest(sprintf('/players/%s/following', $id), 'GET');
     }
@@ -171,7 +173,7 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-   public function get_player_draftees($id, $page = 1, $per_page = 15)
+   public function getPlayerDraftees($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -188,7 +190,7 @@ class Dribbble
      * @param  string $method
      * @param  array  $params
      * @return object
-     * @throws DribbbleException
+     * @throws Dribbble\Exception
      */
     protected function makeRequest($url, $method = 'GET', $params = array())
     {
@@ -196,16 +198,19 @@ class Dribbble
         $options = self::$CURL_OPTS;
         $options[CURLOPT_URL] = $this->endpoint . $url;
         if (!empty($params)) {
-            $options[CURLOPT_URL].= '?'.http_build_query($params, null, '&');
+            $options[CURLOPT_URL].= '?' . http_build_query($params, null, '&');
         }
         curl_setopt_array($ch, $options);
         $result = curl_exec($ch);
-        if ($result === false) {
-            $e = new DribbbleException(curl_error($ch), curl_errno($ch));
-            curl_close($ch);
-            throw new $e;
-        }
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return json_decode($result);
+        if ($result === false) {
+            throw new Exception(curl_error($ch), curl_errno($ch));
+        }
+        $result = json_decode($result);
+        if (isset($result->message)) {
+            throw new Exception($result->message, $status);
+        }
+        return $result;
     }
 }
