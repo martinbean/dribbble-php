@@ -4,8 +4,10 @@
  * 
  * @author  Martin Bean <martin@mcbwebdesign.co.uk>
  * @license MIT
- * @version 2.1.0
+ * @version 2.2.0
  */
+
+namespace Dribbble;
 
 /**
  * The core Dribbble API PHP wrapper class.
