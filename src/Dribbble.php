@@ -37,7 +37,7 @@ class Dribbble
      * @param  integer $id
      * @return object
      */
-    public function get_shot($id)
+    public function getShot($id)
     {
         return $this->makeRequest(sprintf('/shots/%d', $id), 'GET');
     }
@@ -48,7 +48,7 @@ class Dribbble
      * @param  integer $id
      * @return object
      */
-    public function get_shot_rebounds($id)
+    public function getShotRebounds($id)
     {
         return $this->makeRequest(sprintf('/shots/%d/rebounds', $id), 'GET');
     }
@@ -59,7 +59,7 @@ class Dribbble
      * @param  integer $id
      * @return object
      */
-    public function get_shot_comments($id)
+    public function getShotComments($id)
     {
         return $this->makeRequest(sprintf('/shots/%d/comments', $id), 'GET');
     }
@@ -72,7 +72,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_shots_list($list = 'everyone', $page = 1, $per_page = 15)
+    public function getShotsList($list = 'everyone', $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -89,7 +89,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_player_shots($id, $page = 1, $per_page = 15)
+    public function getPlayerShots($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -106,7 +106,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_player_following_shots($id, $page = 1, $per_page = 15)
+    public function getPlayerFollowingShots($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -123,7 +123,7 @@ class Dribbble
      * @param  integer $per_page
      * @return object
      */
-    public function get_player_likes($id, $page = 1, $per_page = 15)
+    public function getPlayerLikes($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
@@ -138,7 +138,7 @@ class Dribbble
      * @param  mixed   $id
      * @return object
      */
-    public function get_player($id)
+    public function getPlayer($id)
     {
         return $this->makeRequest(sprintf('/players/%s', $id), 'GET');
     }
@@ -149,7 +149,7 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-    public function get_player_followers($id)
+    public function getPlayerFollowers($id)
     {
         return $this->makeRequest(sprintf('/players/%s/followers', $id), 'GET');
     }
@@ -160,7 +160,7 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-    public function get_player_following($id)
+    public function getPlayerFollowing($id)
     {
         return $this->makeRequest(sprintf('/players/%s/following', $id), 'GET');
     }
@@ -171,7 +171,7 @@ class Dribbble
      * @param  mixed  $id
      * @return object
      */
-   public function get_player_draftees($id, $page = 1, $per_page = 15)
+   public function getPlayerDraftees($id, $page = 1, $per_page = 15)
     {
         $options = array(
             'page' => intval($page),
