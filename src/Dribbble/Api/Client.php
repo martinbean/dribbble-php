@@ -2,17 +2,19 @@
 /**
  * PHP wrapper for the Dribbble API.
  * 
- * @author  Martin Bean <martin@mcbwebdesign.co.uk>
- * @license MIT
- * @version 2.2.0
+ * @author   Martin Bean <martin@martinbean.co.uk>
+ * @license  MIT License
+ * @version  3.0
  */
 
-namespace Dribbble;
+namespace Dribbble\Api;
+
+use Dribbble\Api\Exception;
 
 /**
  * The core Dribbble API PHP wrapper class.
  */
-class Dribbble
+class Client
 {
     /**
      * Default options for cURL requests.
