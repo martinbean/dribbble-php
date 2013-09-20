@@ -61,11 +61,17 @@ class Client
      * Returns the set of comments for the shot specified by ID.
      *
      * @param  integer $id
+     * @param  integer $page
+     * @param  integer $per_page
      * @return object
      */
-    public function getShotComments($id)
+    public function getShotComments($id, $page = 1, $per_page = 15)
     {
-        return $this->makeRequest(sprintf('/shots/%d/comments', $id), 'GET');
+        $options = array(
+            'page' => intval($page),
+            'per_page' => intval($per_page)
+        );
+        return $this->makeRequest(sprintf('/shots/%d/comments', $id), 'GET', $options);
     }
     
     /**
@@ -192,7 +198,7 @@ class Client
      * @param  string $method
      * @param  array  $params
      * @return object
-     * @throws Dribbble\Exception
+     * @throws Exception
      */
     protected function makeRequest($url, $method = 'GET', $params = array())
     {
