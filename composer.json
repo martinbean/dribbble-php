@@ -1,34 +1,31 @@
 {
     "name": "martinbean/dribbble-php",
     "description": "PHP wrapper for the Dribbble API.",
-    "version": "2.2.0",
+    "version": "4.0.0",
     "type": "library",
     "keywords": [
         "dribbble",
         "php",
         "api"
     ],
-    "homepage": "http://martinbean.github.com/dribbble-php/",
     "license": "MIT",
     "authors": [
         {
             "name": "Martin Bean",
             "email": "martin@martinbean.co.uk",
-            "homepage": "http://www.martinbean.co.uk"
-        },
-        {
-            "name": "Zach Dunn"
+            "homepage": "http://martinbean.co.uk"
         }
     ],
     "support": {
-        "email": "martin@martinbean.co.uk"
+        "issues": "https://github.com/martinbean/dribbble-php/issues"
     },
     "autoload": {
-        "psr-0": {
-            "Dribbble": "src"
+        "psr-4": {
+            "Dribbble\\": "src/"
         }
     },
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "ext-curl": "*"
     }
 }
