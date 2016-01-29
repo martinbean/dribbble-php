@@ -27,14 +27,30 @@ class Client
         CURLOPT_TIMEOUT        => 60,
         CURLOPT_USERAGENT      => 'dribbble-api-php-wrapper'
     );
-    
+
+    /**
+     * The Client Access Token
+     *
+     * @var string
+     */
+    private $access_token;
+
     /**
      * The API endpoint.
      *
      * @var string
      */
-    protected $endpoint = 'http://api.dribbble.com';
-    
+    protected $endpoint = 'https://api.dribbble.com/v1';
+
+    /**
+     * Construct.
+     *
+     * @param string
+     */
+    public function __construct($access_token = 'XXX'){
+        $this->access_token = $access_token;
+    }
+
     /**
      * Returns details for a shot specified by ID.
      *
@@ -43,9 +59,13 @@ class Client
      */
     public function getShot($id)
     {
-        return $this->makeRequest(sprintf('/shots/%d', $id), 'GET');
+        $options = array(
+            'access_token' => $this->access_token
+        );
+
+        return $this->makeRequest(sprintf('/shots/%d', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the set of rebounds (shots in response to a shot) for the shot specified by ID.
      *
@@ -54,9 +74,12 @@ class Client
      */
     public function getShotRebounds($id)
     {
-        return $this->makeRequest(sprintf('/shots/%d/rebounds', $id), 'GET');
+        $options = array(
+            'access_token' => $this->access_token
+        );
+        return $this->makeRequest(sprintf('/shots/%d/rebounds', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the set of comments for the shot specified by ID.
      *
@@ -69,11 +92,12 @@ class Client
     {
         $options = array(
             'page' => intval($page),
-            'per_page' => intval($per_page)
+            'per_page' => intval($per_page),
+            'access_token' => $this->access_token
         );
         return $this->makeRequest(sprintf('/shots/%d/comments', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the specified list of shots.
      *
@@ -86,11 +110,12 @@ class Client
     {
         $options = array(
             'page' => intval($page),
-            'per_page' => intval($per_page)
+            'per_page' => intval($per_page),
+            'access_token' => $this->access_token
         );
         return $this->makeRequest(sprintf('/shots/%s', $list), 'GET', $options);
     }
-    
+
     /**
      * Returns the most recent shots for the player specified.
      *
@@ -103,11 +128,12 @@ class Client
     {
         $options = array(
             'page' => intval($page),
-            'per_page' => intval($per_page)
+            'per_page' => intval($per_page),
+            'access_token' => $this->access_token
         );
-        return $this->makeRequest(sprintf('/players/%s/shots', $id), 'GET', $options);
+        return $this->makeRequest(sprintf('/users/%s/shots', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the most recent shots published by those the player specified is following.
      *
@@ -124,7 +150,7 @@ class Client
         );
         return $this->makeRequest(sprintf('/players/%s/shots/following', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns shots liked by the player specified.
      *
@@ -137,11 +163,12 @@ class Client
     {
         $options = array(
             'page' => intval($page),
-            'per_page' => intval($per_page)
+            'per_page' => intval($per_page),
+            'access_token' => $this->access_token
         );
-        return $this->makeRequest(sprintf('/players/%s/shots/likes', $id), 'GET', $options);
+        return $this->makeRequest(sprintf('/users/%s/likes', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns profile details for a player specified.
      *
@@ -150,9 +177,12 @@ class Client
      */
     public function getPlayer($id)
     {
-        return $this->makeRequest(sprintf('/players/%s', $id), 'GET');
+        $options = array(
+            'access_token' => $this->access_token
+        );
+        return $this->makeRequest(sprintf('/users/%s', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the list of followers for a player specified.
      *
@@ -161,9 +191,13 @@ class Client
      */
     public function getPlayerFollowers($id)
     {
-        return $this->makeRequest(sprintf('/players/%s/followers', $id), 'GET');
+        $options = array(
+            'access_token' => $this->access_token
+        );
+
+        return $this->makeRequest(sprintf('/users/%s/followers', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the list of players followed by the player specified.
      *
@@ -172,9 +206,13 @@ class Client
      */
     public function getPlayerFollowing($id)
     {
-        return $this->makeRequest(sprintf('/players/%s/following', $id), 'GET');
+        $options = array(
+            'access_token' => $this->access_token
+        );
+
+        return $this->makeRequest(sprintf('/users/%s/following', $id), 'GET', $options);
     }
-    
+
     /**
      * Returns the list of players drafted by the player specified.
      *
@@ -189,7 +227,7 @@ class Client
         );
         return $this->makeRequest(sprintf('/players/%s/draftees', $id), 'GET', $options);
     }
-    
+
     /**
      * Makes a HTTP request.
      * This method can be overriden by extending classes if required.
@@ -206,6 +244,7 @@ class Client
         $options = self::$CURL_OPTS;
         $options[CURLOPT_URL] = $this->endpoint . $url;
         if (!empty($params)) {
+            $params['access_token'] =
             $options[CURLOPT_URL].= '?' . http_build_query($params, null, '&');
         }
         curl_setopt_array($ch, $options);
